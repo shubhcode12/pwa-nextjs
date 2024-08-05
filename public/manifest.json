@@ -3,10 +3,11 @@
   "short_name": "pwa sample",
   "theme_color": "#fff",
   "background_color": "#fff",
-  "display": "browser",
+  "start_url": "/?source=pwa",
   "orientation": "portrait",
+  "display": "standalone",
   "scope": "/",
-  "start_url": "/",
+
   "icons": [
     {
       "src": "icons/icon-72x72.png",
