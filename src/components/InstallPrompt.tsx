@@ -51,9 +51,9 @@ const InstallPrompt = () => {
           <p className="text-gray-600">4rabet India</p>
         </div>
         <div className="grid grid-cols-1 gap-4">
-          <Card title="Huge Winnings" subtitle="1.26x" icon="/icon1.png" />
-          <Card title="Fast Payouts" subtitle="21x" icon="/icon2.png" />
-          <Card title="Bonus" subtitle="up to 700%" icon="/icon3.png" />
+          <Card title="Huge Winnings" subtitle="1.26x" icon="/next.svg" />
+          <Card title="Fast Payouts" subtitle="21x" icon="/next.svg" />
+          <Card title="Bonus" subtitle="up to 700%" icon="/next.svg" />
         </div>
       </div>
     </div>
