@@ -7,13 +7,6 @@ import SparklesText from "./SparkleText";
 import PulsatingButton from "./PulseButton";
 
 const InstalledHome = () => {
-  const tableData = [
-    { recharge: "₹100-₹299", agentBonus: 38, downlineBonus: 30 },
-    { recharge: "₹300-₹499", agentBonus: 128, downlineBonus: 50 },
-    { recharge: "₹500-₹999", agentBonus: 188, downlineBonus: 100 },
-    { recharge: "₹1000-₹4999", agentBonus: 288, downlineBonus: 150 },
-    { recharge: "₹6000-₹Above", agentBonus: 388, downlineBonus: 248 },
-  ];
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-[url('/bg4.jpg')] bg-cover bg-center text-white p-5">
       <div className="flex flex-col items-center space-y-4">
@@ -70,49 +63,12 @@ const InstalledHome = () => {
           </div>
         </div>
 
-        <div className="flex flex-col">
-          <div className="-m-1.5 overflow-x-auto">
-            <div className="p-1.5 min-w-full inline-block align-middle">
-              <div className="border rounded-lg shadow overflow-hidden">
-                <table className="min-w-full divide-y divide-gray-200">
-                  <thead>
-                    <tr className="divide-x divide-gray-200">
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-start text-xs font-bold text-black uppercase">
-                        Downline 1st Recharge(Rs)
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-start text-xs font-bold text-black uppercase">
-                        Agent Bonus(Rs)
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-start text-xs font-bold text-black uppercase">
-                        Downline Bonus(Rs)
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-200">
-                    {tableData.map((item, index) => (
-                      <tr key={index}>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
-                          {item.recharge}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
-                          {item.agentBonus}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
-                          {item.downlineBonus}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
+        <div className="rounded-xl">
+          <img
+            src="./bonus.png"
+            className="max-w-md border border-gray-100 rounded-xl"
+            alt=""
+          />
         </div>
       </div>
 
