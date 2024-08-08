@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const InstallPrompt = () => {
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
@@ -20,6 +22,7 @@ const InstallPrompt = () => {
   }, []);
 
   const handleInstallClick = () => {
+
     if (deferredPrompt) {
       deferredPrompt.prompt();
       deferredPrompt.userChoice.then((choiceResult: any) => {
@@ -35,16 +38,31 @@ const InstallPrompt = () => {
     }
   };
 
+  const handleShareClick = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: "Bharat Club",
+        text: "Check out this amazing app!",
+        url: window.location.href
+      }).then(() => {
+        console.log("Thanks for sharing!");
+      }).catch((error) => {
+        console.log("Share failed:", error);
+      });
+    } else {
+     toast("Sharing not supported on this device.")
+    }
+  };
+
+  
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-white p-4">
+      <ToastContainer />
       <div className="w-full max-w-4xl mx-auto p-4">
         <div className="container mx-auto p-4 md:p-8">
           <header className="flex flex-col md:flex-row items-start text-left space-y-4 md:space-y-0 md:space-x-4">
-            <img
-              src="/logosample.webp"
-              className="w-24 rounded-md"
-              alt="App Logo"
-            />
+            <img src="/logo.webp" className="w-24 rounded-md" alt="App Logo" />
             <div>
               <h1 className="text-2xl md:text-3xl text-black font-bold">
                 Bharat Club
@@ -53,9 +71,6 @@ const InstallPrompt = () => {
                 <span className="text-sm text-gray-600">Bharatclub Inc</span>
                 <div className="inline-flex text-gray-600 items-center whitespace-nowrap rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-primary text-primary-foreground">
                   Contains ads
-                </div>
-                <div className="inline-flex text-gray-600 items-center whitespace-nowrap rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-primary text-primary-foreground">
-                  In-app purchases
                 </div>
               </div>
               <div className="flex flex-wrap items-center space-x-2 mt-2">
@@ -74,7 +89,7 @@ const InstallPrompt = () => {
               className="inline-flex bg-black items-center justify-center whitespace-nowrap rounded-md text-sm text-white font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full md:w-auto">
               Install
             </button>
-            <button className="inline-flex bg-black items-center justify-center whitespace-nowrap rounded-md text-sm text-white font-medium border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 w-full md:w-auto">
+            <button onClick={handleShareClick} className="inline-flex bg-black items-center justify-center whitespace-nowrap rounded-md text-sm text-white font-medium border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 w-full md:w-auto">
               Share
             </button>
           </div>
@@ -85,43 +100,36 @@ const InstallPrompt = () => {
               non fringilla magna. Nam sit amet ultrices massa, nec vestibulum
               velit. Aliquam semper ipsum eu dapibus faucibus. Morbi non lacinia
               lorem, in tempor tortor. Nullam lorem lorem, maximus eu tristique
-              vitae, vulputate in metus. Vestibulum in elit venenatis, bibendum
-              dui sed, hendrerit metus. In hendrerit sollicitudin sem. Mauris
-              consequat imperdiet tellus, sit amet pulvinar magna auctor eu.
-              Etiam vitae bibendum justo. Donec nunc augue, dignissim elementum
-              mi in, gravida facilisis lectus.
+              vitae, vulputate in metus.
             </p>
             <div className="mt-8">
               <h2 className="text-2xl text-black font-bold">Screenshots</h2>
-              <div className="flex flex-wrap space-y-4 md:space-y-0 md:space-x-4">
-                <div className="w-full md:w-1/2 lg:w-1/3 p-2">
+              <div className="flex overflow-x-auto space-x-4">
+                <div className="flex-none w-64 p-2">
                   <div className="rounded-lg border bg-card text-card-foreground shadow-sm">
                     <img
-                      src="/ss.jpeg"
+                      src="/1.png"
                       alt="Feature 1"
-                      className="w-full h-[200px] object-cover"
-                      width="250"
-                      height="200"
+                      className="w-full h-full object-cover"
                     />
-                    <div className="p-4 text-center">
-                      <h3 className="text-lg font-bold">
-                        Access Blocked Content
-                      </h3>
-                    </div>
                   </div>
                 </div>
-                <div className="w-full md:w-1/2 lg:w-1/3 p-2">
+                <div className="flex-none w-64 p-2">
                   <div className="rounded-lg border bg-card text-card-foreground shadow-sm">
                     <img
-                      src="/ss.jpeg"
+                      src="/2.png"
                       alt="Feature 2"
-                      className="w-full h-[200px] object-cover"
-                      width="250"
-                      height="200"
+                      className="w-full h-full object-cover"
                     />
-                    <div className="p-4 text-center">
-                      <h3 className="text-lg font-bold">Free Worldwide VPN</h3>
-                    </div>
+                  </div>
+                </div>
+                <div className="flex-none w-64 p-2">
+                  <div className="rounded-lg border bg-card text-card-foreground shadow-sm">
+                    <img
+                      src="/3.png"
+                      alt="Feature 3"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
               </div>
@@ -172,8 +180,7 @@ const InstallPrompt = () => {
                     </h3>
                     <p className="text-sm text-gray-600">5 June 2024</p>
                     <p className="mt-2 text-gray-600">
-                      BharatClub - Fast & Secure is a very reliable app. It does
-                      connect instantly! It has a built-in browser feature.
+                      BharatClub - Highly recommanded app. I will rate 5 stars.
                     </p>
                   </div>
                 </div>
@@ -192,7 +199,9 @@ const InstallPrompt = () => {
                       Jaharabe Ashraf
                     </h3>
                     <p className="text-sm text-gray-600">3 July 2024</p>
-                    <p className="mt-2 text-gray-600">No speed optimization.</p>
+                    <p className="mt-2 text-gray-600">
+                      Bharatclub is best gaming app
+                    </p>
                   </div>
                 </div>
               </div>

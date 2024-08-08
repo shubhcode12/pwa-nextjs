@@ -27,7 +27,7 @@ const InstalledHome = () => (
         <h3 className="text-2xl text-white font-bold">
           Register Now And Get Upto 1000 ₹ On Upi
         </h3>
-        <p>To Clime Bonus Send Text To Bot Grab This Offer Now Offer Ends In</p>
+        <p className="text-white">To Clime Bonus Send Text To Bot Grab This Offer Now Offer Ends In</p>
       </div>
       <div className="flex">
         <div className="flex items-center p-4">
